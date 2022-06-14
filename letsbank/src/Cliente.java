@@ -35,6 +35,10 @@ public abstract class Cliente {
         this.contaInvestimento = new ContaInvestimento(this);
     }
 
+    public boolean hasContaInvestimento() {
+        return contaInvestimento != null;
+    }
+
     public abstract double tarifa();
 
     public abstract double bonus();

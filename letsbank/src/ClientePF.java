@@ -57,6 +57,10 @@ public class ClientePF extends Cliente {
         this.contaPoupanca = new ContaPoupanca(this);
     }
 
+    public boolean hasContaPoupanca() {
+        return contaPoupanca != null;
+    }
+
     @Override
     public double tarifa() {
         return Constants.TARIFA_CLIENTE_PF;

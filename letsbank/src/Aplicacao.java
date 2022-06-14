@@ -6,10 +6,12 @@ public class Aplicacao {
     private Scanner scanner;
 
     private final OperacoesCliente operacoesCliente;
+    private final OperacoesConta operacoesConta;
 
     public Aplicacao() {
         scanner = new Scanner(System.in);
         operacoesCliente = new OperacoesCliente(scanner);
+        operacoesConta = new OperacoesConta(scanner);
     }
 
     public void start() {
@@ -49,13 +51,16 @@ public class Aplicacao {
 
     private void operacoes() {
         System.out.println("1 - Abrir conta");
+        System.out.println("2 - Depositar");
         System.out.println("0 - Sair");
 
         var operacao = scanner.nextInt();
         if (operacao == 1) {
             operacoesCliente.abrirConta(cliente);
+        } else if (operacao == 2) {
+            operacoesConta.depositar(cliente);
         } else if (operacao == 0) {
-            System.out.println("Obrigado por usar o Let's Bank\n");
+            System.out.println("Obrigado por usar o Let's Bank");
             System.exit(0);
         } else {
             operacaoInvalida();
