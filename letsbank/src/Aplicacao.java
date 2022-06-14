@@ -25,13 +25,15 @@ public class Aplicacao {
 
     private void operacoesIniciais() {
         System.out.println("1 - Cadastrar cliente PF");
-        System.out.println("1 - Cadastrar cliente PJ");
+        System.out.println("2 - Cadastrar cliente PJ");
 
         scanner = new Scanner(System.in);
         var operation = scanner.nextInt();
 
         if (operation == 1) {
             cliente = OperacoesCliente.cadastrarClientePf();
+        } else if (operation == 2) {
+            cliente = OperacoesCliente.cadastrarClientePj();
         } else {
             operacaoInvalida();
         }

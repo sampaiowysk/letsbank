@@ -19,4 +19,23 @@ public class OperacoesCliente {
 
         return cliente;
     }
+
+    public static Cliente cadastrarClientePj() {
+        var scanner = new Scanner(System.in);
+
+        System.out.println("Insira razão social:");
+        var razaoSocial = scanner.nextLine();
+
+        System.out.println("Insira CNPJ:");
+        var cnpj = scanner.nextLine();
+
+        var cliente = new ClientePJ();
+        cliente.setRazaoSocial(razaoSocial);
+        cliente.setCnpj(cnpj);
+        cliente.abrirContaCorrente();
+
+        System.out.println("Cliente cadastrado com sucesso\n");
+
+        return cliente;
+    }
 }
