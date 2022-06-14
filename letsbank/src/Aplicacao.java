@@ -5,9 +5,17 @@ public class Aplicacao {
     private Cliente cliente;
     private Scanner scanner;
 
+    private final OperacoesCliente operacoesCliente;
+
+    public Aplicacao() {
+        scanner = new Scanner(System.in);
+        operacoesCliente = new OperacoesCliente(scanner);
+    }
+
     public void start() {
         System.out.println("Bem vindo ao Let's Bank\n");
 
+        //noinspection InfiniteLoopStatement
         while (true) {
             System.out.println("Escolha a operação:");
 
@@ -31,20 +39,23 @@ public class Aplicacao {
         var operation = scanner.nextInt();
 
         if (operation == 1) {
-            cliente = OperacoesCliente.cadastrarClientePf();
+            cliente = operacoesCliente.cadastrarClientePf();
         } else if (operation == 2) {
-            cliente = OperacoesCliente.cadastrarClientePj();
+            cliente = operacoesCliente.cadastrarClientePj();
         } else {
             operacaoInvalida();
         }
     }
 
     private void operacoes() {
+        System.out.println("1 - Abrir conta");
         System.out.println("0 - Sair");
 
         var operacao = scanner.nextInt();
-        if (operacao == 0) {
-            System.out.println("Obrigado por usar o Let's Bank");
+        if (operacao == 1) {
+            operacoesCliente.abrirConta(cliente);
+        } else if (operacao == 0) {
+            System.out.println("Obrigado por usar o Let's Bank\n");
             System.exit(0);
         } else {
             operacaoInvalida();
@@ -52,6 +63,6 @@ public class Aplicacao {
     }
 
     private void operacaoInvalida() {
-        System.out.println("Operação inválida");
+        System.out.println("Operação inválida\n");
     }
 }

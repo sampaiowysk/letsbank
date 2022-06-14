@@ -5,6 +5,7 @@ public abstract class Cliente {
     private LocalDate dataAdesao = LocalDate.now();
     private Contato contato;
     private ContaCorrente contaCorrente;
+    private ContaInvestimento contaInvestimento;
 
     public LocalDate getDataAdesao() {
         return dataAdesao;
@@ -24,6 +25,14 @@ public abstract class Cliente {
 
     public void abrirContaCorrente() {
         this.contaCorrente = new ContaCorrente(this);
+    }
+
+    public ContaInvestimento getContaInvestimento() {
+        return contaInvestimento;
+    }
+
+    public void abrirContaInvestimento() {
+        this.contaInvestimento = new ContaInvestimento(this);
     }
 
     public abstract double tarifa();
