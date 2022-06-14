@@ -7,7 +7,6 @@ public class ClientePJ extends Cliente {
     private LocalDate dataAbertura;
     private String atividadePrincipal;
     private String razaoSocial;
-    private ContaInvestimento contaInvestimento;
 
     public String getRazaoSocial() {
         return razaoSocial;
@@ -47,14 +46,6 @@ public class ClientePJ extends Cliente {
 
     public void setAtividadePrincipal(String atividadePrincipal) {
         this.atividadePrincipal = atividadePrincipal;
-    }
-
-    public ContaInvestimento getContaInvestimento() {
-        return contaInvestimento;
-    }
-
-    public void abrirContaInvestimento() {
-        this.contaInvestimento = new ContaInvestimento(this);
     }
 
     @Override

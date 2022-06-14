@@ -8,7 +8,6 @@ public class ClientePF extends Cliente {
     private String ocupacao;
     private double renda;
     private ContaPoupanca contaPoupanca;
-    private ContaInvestimento contaInvestimento;
 
     public String getNome() {
         return nome;
@@ -58,12 +57,8 @@ public class ClientePF extends Cliente {
         this.contaPoupanca = new ContaPoupanca(this);
     }
 
-    public ContaInvestimento getContaInvestimento() {
-        return contaInvestimento;
-    }
-
-    public void abrirContaInvestimento() {
-        this.contaInvestimento = new ContaInvestimento(this);
+    public boolean hasContaPoupanca() {
+        return contaPoupanca != null;
     }
 
     @Override
