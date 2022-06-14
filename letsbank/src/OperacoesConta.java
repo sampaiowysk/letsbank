@@ -46,4 +46,22 @@ public class OperacoesConta {
             return null;
         }
     }
+
+    public void sacar(Cliente cliente) {
+        Conta conta = selecionarConta(cliente);
+        if (conta == null) {
+            return;
+        }
+
+        System.out.println("Insira valor a ser sacado:");
+        var valor = scanner.nextDouble();
+
+        var sucesso = conta.sacar(valor);
+
+        if (sucesso) {
+            System.out.println("Operação realizada com sucesso\n");
+        } else {
+            System.out.println("Erro ao realizar operação\n");
+        }
+    }
 }
