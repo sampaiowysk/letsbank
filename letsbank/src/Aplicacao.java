@@ -8,6 +8,11 @@ public class Aplicacao {
     private final OperacoesCliente operacoesCliente;
     private final OperacoesConta operacoesConta;
 
+    public static void main(String[] args) {
+        var aplicacao = new Aplicacao();
+        aplicacao.start();
+    }
+
     public Aplicacao() {
         scanner = new Scanner(System.in);
         operacoesCliente = new OperacoesCliente(scanner);
