@@ -1,5 +1,4 @@
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class OperacoesConta {
@@ -11,6 +10,7 @@ public class OperacoesConta {
     }
 
     public void depositar(Cliente cliente) {
+        System.out.println("Selecione conta destino:");
         Conta conta = selecionarConta(cliente);
         if (conta == null) {
             return;
@@ -21,12 +21,14 @@ public class OperacoesConta {
 
         conta.depositar(valor);
 
+        operacaoSucesso();
+    }
+
+    private void operacaoSucesso() {
         System.out.println("Operação realizada com sucesso\n");
     }
 
     private Conta selecionarConta(Cliente cliente) {
-        System.out.println("Selecione conta destino:");
-
         System.out.println("1 - Conta corrente");
         if (cliente.hasContaInvestimento()) {
             System.out.println("2 - Conta investimento");
@@ -50,6 +52,7 @@ public class OperacoesConta {
     }
 
     public void sacar(Cliente cliente) {
+        System.out.println("Selecione conta origem:");
         Conta conta = selecionarConta(cliente);
         if (conta == null) {
             return;
@@ -61,18 +64,49 @@ public class OperacoesConta {
         var sucesso = conta.sacar(valor);
 
         if (sucesso) {
-            System.out.println("Operação realizada com sucesso\n");
+            operacaoSucesso();
         } else {
             System.out.println("Saldo insuficiente\n");
         }
     }
 
     public void consultarSaldo(Cliente cliente) {
+        System.out.println("Selecione conta:");
         Conta conta = selecionarConta(cliente);
         if (conta == null) {
             return;
         }
 
         System.out.println("Seu saldo é " + new DecimalFormat().format(conta.getSaldo()) + "\n");
+    }
+
+    public void transferir(Cliente cliente) {
+        System.out.println("Selecione conta origem:");
+        Conta origem = selecionarConta(cliente);
+        if (origem == null) {
+            return;
+        }
+
+        System.out.println("Selecione conta destino:");
+        Conta destino = selecionarConta(cliente);
+        if (destino == null) {
+            return;
+        }
+
+        if (origem == destino) {
+            System.out.println("Não é possível transferir para a mesma conta\n");
+            return;
+        }
+
+        System.out.println("Insira valor a ser transferido:");
+        var valor = scanner.nextDouble();
+
+        var sucesso = origem.transferir(destino, valor);
+
+        if (sucesso) {
+            operacaoSucesso();
+        } else {
+            System.out.println("Saldo insuficiente\n");
+        }
     }
 }
