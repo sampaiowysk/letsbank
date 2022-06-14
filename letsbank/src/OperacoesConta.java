@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class OperacoesConta {
@@ -63,5 +65,14 @@ public class OperacoesConta {
         } else {
             System.out.println("Erro ao realizar operação\n");
         }
+    }
+
+    public void consultarSaldo(Cliente cliente) {
+        Conta conta = selecionarConta(cliente);
+        if (conta == null) {
+            return;
+        }
+
+        System.out.println("Seu saldo é " + new DecimalFormat().format(conta.getSaldo()) + "\n");
     }
 }

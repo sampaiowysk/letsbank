@@ -53,6 +53,7 @@ public class Aplicacao {
         System.out.println("1 - Abrir conta");
         System.out.println("2 - Depositar");
         System.out.println("3 - Sacar");
+        System.out.println("4 - Consultar saldo");
         System.out.println("0 - Sair");
 
         var operacao = scanner.nextInt();
@@ -62,6 +63,8 @@ public class Aplicacao {
             operacoesConta.depositar(cliente);
         } else if (operacao == 3) {
             operacoesConta.sacar(cliente);
+        } else if (operacao == 4) {
+            operacoesConta.consultarSaldo(cliente);
         } else if (operacao == 0) {
             System.out.println("Obrigado por usar o Let's Bank");
             System.exit(0);
