@@ -63,7 +63,7 @@ public class OperacoesConta {
         if (sucesso) {
             System.out.println("Operação realizada com sucesso\n");
         } else {
-            System.out.println("Erro ao realizar operação\n");
+            System.out.println("Saldo insuficiente\n");
         }
     }
 
