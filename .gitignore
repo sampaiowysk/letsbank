@@ -1,0 +1,7 @@
+# Intellij
+.idea/
+letsbank.iml
+
+# Build
+letsbank/bin
+out/
